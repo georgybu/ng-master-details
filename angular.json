@@ -102,6 +102,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "ng-master-details"
 }
