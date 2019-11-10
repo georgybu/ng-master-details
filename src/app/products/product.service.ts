@@ -113,7 +113,7 @@ export class ProductService {
 
     private getSortPredicate(sort: Sort) {
         const toLower = (s) => s.trim().toLowerCase();
-        const stringPredicate = (s1, s2) => (s1 > s2) ? 1 : (s1 < s2) ? -1 : 0;
+        const stringCompare = (s1, s2) => (s1 > s2) ? 1 : (s1 < s2) ? -1 : 0;
 
         return (a: Product, b: Product) => {
             switch (sort) {
@@ -122,11 +122,11 @@ export class ProductService {
                 case Sort.BY_PRICE_DESC:
                     return b.price - a.price;
                 case Sort.BY_NAME_DESC:
-                    return stringPredicate(toLower(b.name), toLower(a.name));
+                    return stringCompare(toLower(b.name), toLower(a.name));
                 case Sort.BY_NAME_ASC:
                 case Sort.ORIGIN:
                 default:
-                    return stringPredicate(toLower(a.name), toLower(b.name));
+                    return stringCompare(toLower(a.name), toLower(b.name));
             }
         }
     }
