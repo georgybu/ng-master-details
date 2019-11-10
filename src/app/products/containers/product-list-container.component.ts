@@ -4,7 +4,7 @@ import {ProductService} from '../product.service';
 @Component({
     selector: 'm-product-list-container',
     template: `
-        <m-loader *ngIf="loading || true"></m-loader>
+        <m-loader *ngIf="loading"></m-loader>
         <ng-container *ngIf="product.items$ | async as products">
             <m-product-list *ngIf="products" 
                             [products]="products"
